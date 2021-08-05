@@ -13,7 +13,7 @@
 
 * Function:
 
-  ```
+  ```go
   func Hello(name string) string {
     message := fmt.Sprintf("Hi %v. Welcome!", name)
     return message
@@ -35,13 +35,13 @@
       go mod tidy
       go mod edit -replace example.com/greetings=../greetings
     ```
-## Official website starters - Part 2
+## Official website starters - Part 3
 
 > https://golang.org/doc/tutorial/handle-errors
 
 * impoert `errors` package
 
-  ```
+  ```go
   import (
       "errors"
       "fmt"
@@ -61,7 +61,7 @@
 
 * Handle error
 
-  ```
+  ```go
   package main
 
   import (
@@ -86,4 +86,35 @@
 
       fmt.Println(message)
   }
+  ```
+
+## Official website starters - Part 4
+
+> https://golang.org/doc/tutorial/random-greeting
+
+* Import `math/rand` and `time` packages
+
+* Add an init function to seed the rand package with the current time. Go executes init functions automatically at program startup, after global variables have been initialized.
+
+  ```go
+  func init() {
+    rand.Seed(time.Now().UnixNano())
+  }
+  ```
+* Create private function
+
+  *  A `slice` is like an array, except that its size changes dynamically as you add and remove items
+
+  * function starts with a lower-cased letter meaning it's a private function - not accesible to other modules
+  
+  ```go
+  func randomFormat() string {
+    formats := []string{
+      "Good morning, %v!!",
+      "Nice to meet you %v!!",
+      "Hi %v, your hair looks great today!!",
+    }
+    return formats[rand.Intn(len(formats))]
+  }
+
   ```

@@ -106,7 +106,7 @@
   *  A `slice` is like an array, except that its size changes dynamically as you add and remove items
 
   * function starts with a lower-cased letter meaning it's a private function - not accesible to other modules
-  
+
   ```go
   func randomFormat() string {
     formats := []string{
@@ -117,4 +117,29 @@
     return formats[rand.Intn(len(formats))]
   }
 
+  ```
+
+## Official website starters - Part 5
+
+> https://golang.org/doc/tutorial/greetings-multiple-people
+
+
+* Hellos returns a map that associates each of the named people with a greeting message.
+
+  ```go
+  func Hellos(names []string) (map[string] string, error) {
+    // In Go, you initialize a map with the following syntax: make(map[key-type]value-type)
+    messages := make(map[string]string)
+
+    // In this for loop, range returns two values: the index of the current item in the loop and a copy of the item's value
+    for _, name := range names {
+      message, err := Hello(name)
+      if err != nil {
+        return nil, err
+      }
+      messages[name] = message
+    }
+
+    return messages, nil
+  }
   ```

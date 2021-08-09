@@ -143,3 +143,16 @@
     return messages, nil
   }
   ```
+
+## Official website starters - Part 6
+
+> https://golang.org/doc/tutorial/add-a-test
+
+* Go's built-in support for unit testing makes it easier to test as you go. Specifically, using naming conventions, Go's testing package, and the go test command, you can quickly write and execute tests.
+
+> Ending a file's name with `_test.go` tells the go test command that this file contains test functions.
+
+  ```go
+  go test
+  go test -v
+  ```
